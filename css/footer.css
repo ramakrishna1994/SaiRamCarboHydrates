@@ -1,0 +1,33 @@
+#customfooter{
+	margin-top:35px;
+	background: url("../images/header.jpg") no-repeat;
+	background-size: cover;
+	padding-top:15px;
+	padding-bottom:15px;
+}
+
+.footerheader{
+	
+	font-size:18px;
+	color:black
+}
+
+.footerheaderunderline{
+		border:1px solid red;
+		height:1px;
+		margin-left:10px;
+		margin-right:10px;
+}
+
+.linkcolor{
+	color:maroon;
+}
+.footercopyright{
+	padding-left:40px;
+	color:black;
+}
+
+.footerwebsitedesigner{
+	
+	color:black;
+}
