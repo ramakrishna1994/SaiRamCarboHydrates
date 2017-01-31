@@ -26,9 +26,16 @@ function showSpecificProductsDetails(){
 							for(var i=0;i<response.length-1;i++)
 							{
 								innerhtml += '	<tr >'
-											+'	<td>'+(i+1)+'</td>'
-											+'	<td><a href="'+response[i].category+'/'+response[i].link+'" target="_blank">'+response[i].name+'</td>'
-											+'	<td>'+response[i].casno+'</td>'
+											+'	<td>'+(i+1)+'</td>';
+											if(response[i].link!='')
+											{
+													innerhtml+= '<td><a href="'+response[i].category+'/'+response[i].link+'" target="_blank">'+response[i].name+'</a></td>';
+											
+											}
+											else{
+												innerhtml+= '<td>'+response[i].name+'</td>';
+											}
+											innerhtml+='<td>'+response[i].casno+'</td>'
 											+'	</tr>';
 											
 								

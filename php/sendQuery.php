@@ -7,12 +7,14 @@ require_once '../constant/connection.php';
 
 
 $name=trim(mysqli_real_escape_string($con,$_POST['name']));
+$productname=trim(mysqli_real_escape_string($con,$_POST['productname']));
+$comments=trim(mysqli_real_escape_string($con,$_POST['comments']));
 $email=trim(mysqli_real_escape_string($con,$_POST['email']));
 $casno=trim(mysqli_real_escape_string($con,$_POST['casno']));
 $qty=trim(mysqli_real_escape_string($con,$_POST['qty']));
 
 
-$to = "info@saicarbohydrates.com";
+$to = "ramakrishnasaradhi@gmail.com";
 
 
 $mail = new PHPMailer;
@@ -22,11 +24,11 @@ $mail = new PHPMailer;
 //Set PHPMailer to use SMTP.
 $mail->isSMTP();            
 //Set SMTP host name                          
-$mail->Host = "mail.saicarbohydrates.com";
+$mail->Host = "sg2plcpnl0098.prod.sin2.secureserver.net";
 //Set this to true if SMTP host requires authentication to send email
 $mail->SMTPAuth = true;                          
 //Provide username and password     
-$mail->Username = "info@saicarbohydrates.com";                 
+$mail->Username = "sairamanneboina";                 
 $mail->Password = "Anneboina@9";                           
 //If SMTP requires TLS encryption then set it
                         
@@ -61,8 +63,16 @@ $mail->Body = '
 			<table class="table table-bordered">
 			<tbody>
 			  <tr>
-				<td><b>Product Name</b></td>
+				<td><b>Name</b></td>
 				<td>'.$name.'</td>
+			  </tr>
+			  <tr>
+				<td><b>Email Adddress</b></td>
+				<td>'.$email.'</td>
+			  </tr>
+			  <tr>
+				<td><b>Product Name</b></td>
+				<td>'.$productname.'</td>
 			  </tr>
 			  <tr>
 				<td><b>CAS No.</b></td>
@@ -73,8 +83,8 @@ $mail->Body = '
 				<td>'.$qty.'</td>
 			  </tr>
 			  <tr>
-				<td><b>Email Adddress</b></td>
-				<td>'.$email.'</td>
+				<td><b>Comments</b></td>
+				<td>'.$comments.'</td>
 			  </tr>
 			</tbody>
 		  </table>

@@ -59,14 +59,17 @@ body {
 }
 
 .header-nightsky .navbar-brand {
-    color: maroon;
-    font-size: 25px;
+    color: red;
+    font-size: 30px;
     margin-top: 10px;
     margin-bottom: 10px;
+	font-family: 'PT Sans',Serif;
+	font-weight: bold;
 }
 
 .header-nightsky .navbar-brand:hover {
-    color: black;
+    color: red;
+	font-size: 35px;
 }
 
 .header-nightsky .hero {

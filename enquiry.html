@@ -18,10 +18,13 @@
         <!--Header will be filled dynamically from "mainheader.html" file-->
     </div>
 	
+	<div id="searchResults"></div>
+	
 	
 	
 	<div class="container " style="margin-top:35px">
 		<h4 class="text-center">ENQUIRY</h4>
+		<center><div class="input-group text-center" id="status"></div></center>
 		<div class="form-horizontal">
 			  <div class="form-group">
 				<label class="control-label col-sm-2" for="email">Email* :</label>
@@ -36,21 +39,21 @@
 				</div>
 			  </div>
 			  <div class="form-group">
-				<label class="control-label col-sm-2" for="productName">Product Name* :</label>
+				<label class="control-label col-sm-2" for="productname">Product Name* :</label>
 				<div class="col-sm-10"> 
-				  <input type="text" class="form-control" id="productName" placeholder="Enter Product Name">
+				  <input type="text" class="form-control" id="productname" placeholder="Enter Product Name">
 				</div>
 			  </div>
 			  <div class="form-group">
-				<label class="control-label col-sm-2" for="casNo">CAS No.* :</label>
+				<label class="control-label col-sm-2" for="casno">CAS No.* :</label>
 				<div class="col-sm-10"> 
-				  <input type="text" class="form-control" id="casNo" placeholder="Enter CAS No.">
+				  <input type="text" class="form-control" id="casno" placeholder="Enter CAS No.">
 				</div>
 			  </div>
 			   <div class="form-group">
-				<label class="control-label col-sm-2" for="casNo">Quantity* :</label>
+				<label class="control-label col-sm-2" for="qty">Quantity* :</label>
 				<div class="col-sm-10"> 
-				  <input type="text" class="form-control" id="casNo" placeholder="Enter Quantity in KG's or Grams">
+				  <input type="text" class="form-control" id="qty" placeholder="Enter Quantity in KG's or Grams">
 				</div>
 			  </div>
 			  <div class="form-group">
@@ -62,13 +65,14 @@
 			  
 			  <div class="form-group"> 
 				<div class="col-sm-offset-2 col-sm-10">
-				  <button type="submit" class="btn btn-danger">Submit</button>
+				  <button type="submit" class="btn btn-danger" onclick="sendQuote()">Submit</button>
 				</div>
 			  </div>
 			</div>
 	</div>
 	
-	
+	<div id="enquiryform1" class="hidden">
+	</div>
 	
 	
 	<div id="footerMain" class="container-fluid" >
@@ -79,6 +83,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="js/maincommon.js"></script>
+	<script src="js/loadenquiryform.js"></script>
 </body>
 
 </html>
