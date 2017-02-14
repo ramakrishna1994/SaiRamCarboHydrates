@@ -1,4 +1,33 @@
-<!DOCTYPE html>
+<?php
+
+require_once 'constant/connection.php';
+$id=trim(mysqli_real_escape_string($con,$_GET['id']));
+		
+$selectquery = "select * from products where id= ".$id.";";
+
+$result=mysqli_query($con,$selectquery) or die(mysqli_error($con));
+$details = array();
+
+while($row = mysqli_fetch_array($result)){
+	
+	$details[0]=$row['id'];
+	$details[1]=$row['name'];
+	$details[2]=$row['synonyms'];
+	$details[3]=$row['mf'];
+	$details[4]=$row['mw'];
+	$details[5]=$row['appearance'];
+	$details[6]=$row['purity'];
+	$details[7]=$row['sor'];
+	$details[8]=$row['casno'];
+	$details[9]=$row['solubility'];
+	$details[10]=$row['watercontent'];
+	$details[11]=$row['storage'];
+	$details[12]=$row['ms'];
+	$details[13]=$row['category'];
+			
+}
+
+?>
 <html>
 
 <head>

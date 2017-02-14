@@ -1,6 +1,7 @@
-$('#headerMain').load("mainheader.html")
-$('#footerMain').load("mainfooter.html")
-$('#searchResults').load("searchresultsmodal.html")
+$('#headerMain').load("header.html");
+$('#footerMain').load("footer.html");
+$('#searchResults').load("searchresultsmodal.html");
+
 var colors = ["danger","info","warning","default","success","active"];
 function getSearchResults(){
 	
@@ -32,15 +33,10 @@ function getSearchResults(){
 											+'	<td>'+(i+1)+'</td>'
 											+'	<td>'+response[i].name+'</td>'
 											+'	<td>'+response[i].casno+'</td>';
-											if(response[i].link != '')
-											{
-													innerhtml+= '<td><a href="'+response[i].category+'/'+response[i].link+'" target="_blank">'+response[i].name+'</td>';
+														
+								innerhtml+= '<td><a href="showproduct.php?id='+response[i].id+'" 		target="_blank">'+response[i].name+'</a></td>';
 											
-											}
-											else{
-													innerhtml+= '<td></td>';
-											}
-											innerhtml+= '<td>'+response[i].category+'</td>'
+								innerhtml+= '<td>'+response[i].category+'</td>'
 													 +	'</tr>';
 											
 								
@@ -57,3 +53,16 @@ function fillLoader(){
 	var loader = '<tr><td colspan="5"><center><image src="images/loader.gif" height="40px" width="40px"><br>Fetching details..Please wait!!</center></td></tr>';
 	return loader;
 }
+
+$(document).ready(function(){
+				$('#query').keypress(function (e) {
+			 var key = e.which;
+			 if(key == 13)  // the enter key code
+			  {
+				$('#querybutton').click();
+				return false;  
+			  }
+			}); 
+			});
+			
+			

@@ -29,15 +29,8 @@ function showProductsDetails(){
 											+'	<td>'+(i+1)+'</td>'
 											+'	<td>'+response[i].name+'</td>'
 											+'	<td>'+response[i].casno+'</td>';
-											if(response[i].link != '')
-											{
-													innerhtml+= '<td><a href="'+response[i].category+'/'+response[i].link+'" target="_blank">'+response[i].name+'</td>';
 											
-											}
-											else{
-													innerhtml+= '<td></td>';
-											}
-											innerhtml+= '<td>'+response[i].category+'</td>'
+								innerhtml+= '<td>'+response[i].category+'</td>'
 											+'	<td><button class="btn btn-info" '
 											+'	onclick="editProduct('+response[i].id+')">Edit'
 											+'	</button></td>'
@@ -67,9 +60,19 @@ function fillLoader(){
 function insertProduct(){
 	var formData = new FormData();
 	var name = document.getElementById("name").value;
+	var synonyms = document.getElementById("synonyms").value;
+	var mf = document.getElementById("mf").value;
+	var mw = document.getElementById("mw").value;
+	
+	var appearance = document.getElementById("appearance").value;
+	var purity = document.getElementById("purity").value;
+	var sor = document.getElementById("sor").value;
 	var casno = document.getElementById("casno").value;
-	var link = document.getElementById("link").value;
+	var solubility = document.getElementById("solubility").value;
+	var watercontent = document.getElementById("watercontent").value;
+	var storage = document.getElementById("storage").value;
 	var category = document.getElementById("category").value;
+	
 	document.getElementById("insertStatus").innerHTML=fillLoader();
 	if(name == ""){
 		document.getElementById("insertStatus").innerHTML='<center><font color="red">Please Enter Product Name</font></center>';
@@ -83,9 +86,18 @@ function insertProduct(){
 		document.getElementById("insertStatus").innerHTML='<center><font color="red">Please Enter Category</font></center>';
 		return;	
 	}
-	formData.append( 'name',name);
+	formData.append('name',name);
+	formData.append('synonyms',synonyms);
+	formData.append('mf',mf);
+	formData.append('mw',mw);
+	formData.append( 'ms', $( '#ms' )[0].files[0] );
+	formData.append('appearance',appearance);
+	formData.append('purity',purity);
+	formData.append('sor',sor);
 	formData.append('casno',casno);
-	formData.append('link',link);
+	formData.append('solubility',solubility);
+	formData.append('watercontent',watercontent);
+	formData.append('storage',storage);
 	formData.append('category',category);
 	$(document).ready(function(){
 					
@@ -100,8 +112,17 @@ function insertProduct(){
 						{
 							document.getElementById("insertStatus").innerHTML='<center><font color="green">Successfully Inserted Into Database</font></center>';
 							document.getElementById("name").value = "";
+							document.getElementById("synonyms").value = "";
+							document.getElementById("mf").value = "";
+							document.getElementById("mw").value = "";
+							document.getElementById("ms").value = "";
+							document.getElementById("appearance").value = "";
+							document.getElementById("purity").value = "";
+							document.getElementById("sor").value = "";
 							document.getElementById("casno").value = "";
-							document.getElementById("link").value = "";
+							document.getElementById("solubility").value = "";
+							document.getElementById("watercontent").value = "";
+							document.getElementById("storage").value = "";
 							document.getElementById("category").value = "";
 							showProductsDetails();
 						}
@@ -138,10 +159,19 @@ function deleteProduct(id){
 function editProduct(id){
 	$("#editModal").modal("show");
 	
-	document.getElementById("ename").value = "";
-	document.getElementById("ecasno").value = "";
-	document.getElementById("elink").value = "";
-	document.getElementById("ecategory").value = "";
+	var ename = document.getElementById("ename").value;
+	var esynonyms = document.getElementById("esynonyms").value;
+	var emf = document.getElementById("emf").value;
+	var emw = document.getElementById("emw").value;
+	
+	var eappearance = document.getElementById("eappearance").value;
+	var epurity = document.getElementById("epurity").value;
+	var esor = document.getElementById("esor").value;
+	var ecasno = document.getElementById("ecasno").value;
+	var esolubility = document.getElementById("esolubility").value;
+	var ewatercontent = document.getElementById("ewatercontent").value;
+	var estorage = document.getElementById("estorage").value;
+	var ecategory = document.getElementById("ecategory").value;
 	
 	document.getElementById("eid").value = id;
 	var formData = new FormData();
@@ -160,8 +190,17 @@ function editProduct(id){
 						{
 							
 							document.getElementById("ename").value = response[0].name;
+							document.getElementById("esynonyms").value = response[0].synonyms;
+							document.getElementById("emf").value = response[0].mf;
+							document.getElementById("emw").value = response[0].mw;
+							//document.getElementById("ems").value = response[0].ms;
+							document.getElementById("eappearance").value = response[0].appearance;
+							document.getElementById("epurity").value = response[0].purity;
+							document.getElementById("esor").value = response[0].sor;
 							document.getElementById("ecasno").value = response[0].casno;
-							document.getElementById("elink").value = response[0].link;
+							document.getElementById("esolubility").value = response[0].solubility;
+							document.getElementById("ewatercontent").value = response[0].watercontent;
+							document.getElementById("estorage").value = response[0].storage;
 							document.getElementById("ecategory").value = response[0].category;
 							document.getElementById("editStatus").innerHTML='';
 							
@@ -174,11 +213,22 @@ function editProduct(id){
 
 function insertModifiedProduct(){
 	var formData = new FormData();
-	var id = document.getElementById("eid").value;
+	
+	var id = document.getElementById("eid").value
 	var name = document.getElementById("ename").value;
+	var synonyms = document.getElementById("esynonyms").value;
+	var mf = document.getElementById("emf").value;
+	var mw = document.getElementById("emw").value;
+	
+	var appearance = document.getElementById("eappearance").value;
+	var purity = document.getElementById("epurity").value;
+	var sor = document.getElementById("esor").value;
 	var casno = document.getElementById("ecasno").value;
-	var link = document.getElementById("elink").value;
+	var solubility = document.getElementById("esolubility").value;
+	var watercontent = document.getElementById("ewatercontent").value;
+	var storage = document.getElementById("estorage").value;
 	var category = document.getElementById("ecategory").value;
+	
 	document.getElementById("editStatus").innerHTML=fillLoader();
 	if(name == ""){
 		document.getElementById("editStatus").innerHTML='<center><font color="red">Please Enter Product Name</font></center>';
@@ -192,10 +242,19 @@ function insertModifiedProduct(){
 		document.getElementById("editStatus").innerHTML='<center><font color="red">Please Enter Category</font></center>';
 		return;	
 	}
-	formData.append( 'id',id);
-	formData.append( 'name',name);
+	formData.append('id',id);
+	formData.append('name',name);
+	formData.append('synonyms',synonyms);
+	formData.append('mf',mf);
+	formData.append('mw',mw);
+	formData.append( 'ms', $( '#ems' )[0].files[0] );
+	formData.append('appearance',appearance);
+	formData.append('purity',purity);
+	formData.append('sor',sor);
 	formData.append('casno',casno);
-	formData.append('link',link);
+	formData.append('solubility',solubility);
+	formData.append('watercontent',watercontent);
+	formData.append('storage',storage);
 	formData.append('category',category);
 	$(document).ready(function(){
 					
@@ -208,14 +267,38 @@ function insertModifiedProduct(){
 						contentType: false,
 						success: function (response) 
 						{
-							document.getElementById("editStatus").innerHTML='<center><font color="green">Successfully Edited the Product in Database</font></center>';
+							document.getElementById("editStatus").innerHTML='<center><font color="green">Successfully Updated the Product in Database</font></center>';
 							document.getElementById("ename").value = "";
+							document.getElementById("esynonyms").value = "";
+							document.getElementById("emf").value = "";
+							document.getElementById("emw").value = "";
+							document.getElementById("eappearance").value = "";
+							document.getElementById("epurity").value = "";
+							document.getElementById("esor").value = "";
 							document.getElementById("ecasno").value = "";
-							document.getElementById("elink").value = "";
+							document.getElementById("esolubility").value = "";
+							document.getElementById("ewatercontent").value = "";
+							document.getElementById("estorage").value = "";
 							document.getElementById("ecategory").value = "";
+							document.getElementById("ems").value = "";
 							showProductsDetails();
 						}
 						});
 				});
 }
 
+
+function logout(){
+	$(document).ready(function(){
+					
+					$.ajax({
+						url: "php/logout.php",// give your url
+						processData: false,
+						contentType: false,
+						success: function (response) 
+						{
+							window.open("Login.html","_self");
+						}
+						});
+				});
+}

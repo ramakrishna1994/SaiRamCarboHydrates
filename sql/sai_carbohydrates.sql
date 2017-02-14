@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 30, 2017 at 12:48 PM
+-- Generation Time: Feb 14, 2017 at 02:23 PM
 -- Server version: 5.7.9
 -- PHP Version: 5.6.16
 
@@ -30,30 +30,84 @@ DROP TABLE IF EXISTS `products`;
 CREATE TABLE IF NOT EXISTS `products` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `casno` varchar(30) NOT NULL,
-  `link` varchar(255) NOT NULL,
-  `category` varchar(30) NOT NULL,
+  `synonyms` varchar(1000) NOT NULL,
+  `mf` varchar(255) NOT NULL,
+  `mw` varchar(255) NOT NULL,
+  `ms` varchar(255) NOT NULL,
+  `appearance` varchar(255) NOT NULL,
+  `purity` varchar(255) NOT NULL,
+  `sor` varchar(255) NOT NULL,
+  `casno` varchar(255) NOT NULL,
+  `solubility` varchar(255) NOT NULL,
+  `watercontent` varchar(255) NOT NULL,
+  `storage` varchar(255) NOT NULL,
+  `category` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `casno`, `link`, `category`) VALUES
-(19, '5-Bromo-4-chloro-3-indoxyl-beta-D-glucuronic acid, Sodium salt(X-GLUC Sodium Salt.)', '370100-64-4', '5-Bromo-4-chloro-3-indoxyl-beta-D-glucuronic_acid_Sodium _salt(X-GLUC Sodium Salt)', 'carbohydrates'),
-(18, '5-Bromo-4-chloro-3-indoxyl-beta-D-glucuronic acid, cyclohexylammonium salt , (X-GLUC CHA Salt.)', '114162-64-0', '5-Bromo-4-chloro-3-indoxyl-beta-D-glucuronic_acid_cyclohexylammonium_salt_(X-GLUC_CHA_Salt)', 'carbohydrates'),
-(17, '5-Bromo-4-chloro-3-indolyl-beta-D-glucopyranoside [X-glu]', '15548-60-4', '5-Bromo-4-chloro-3-indolyl-beta-D-glucopyranoside_[X-glu]', 'carbohydrates'),
-(16, '5-Bromo-4-chloro-3-indolyl-beta-D-galactopyranoside [X-gal]', '7240-90-6', '5-Bromo-4-chloro-3-indolyl-beta-D-galactopyranoside_[X-gal]', 'carbohydrates'),
-(15, 'Isopropyl-beta-D-thio galactopyranoside (IPTG)', '367-93-1', 'Isopropyl-beta-D-thio_galactopyranoside_(IPTG)', 'carbohydrates'),
-(20, '5-Bromo-6-chloro-3-indolyl b-D-glucuronide cyclohexylammonium salt', '144110-43-0', '5-Bromo-6-chloro-3-indolyl_b-D-glucuronide_cyclohexylammonium', 'carbohydrates'),
-(21, '2,3,4,6-TETRA-O-ACETYL-Î‘-D-GALACTOPYRANOSYL BROMIDE', '3068-32- 4', '2_3_4_6-TETRA-O-ACETYL-Î‘-D-GALACTOPYRANOSYL_BROMIDE', 'carbohydrates'),
-(22, '2,3,4,6-TETRA-O-ACETYL-A-D-GLUCOPYRANOSYL CHLORIDE', '4451-35-8', '2_3_4_6-TETRA-O-ACETYL-A-D-GLUCOPYRANOSYL_CHLORIDE', 'carbohydrates'),
-(23, '1,2,3,4-TETRA-O-ACETYL-Î’-D-GLUCURONIDE METHYL ESTER', '7355-18-2', '1_2_3_4-TETRA-O-ACETYL-Î’-D-GLUCURONIDE_METHYL_ESTER', 'carbohydrates'),
-(24, '5-Bromo indoxyl-1,3-di acetate', '33588-54-4', '5-Bromo_indoxyl-1_3-di_acetate', 'carbohydrates'),
-(25, 'INDOXYL-1-3-DIACETATE', '16800-67-2', 'INDOXYL-1-3-DIACETATE', 'carbohydrates'),
-(26, '2-BROMOETHYL-4-NITROPHENYL ETHER', '13288-06-7', '2-BROMOETHYL-4-NITROPHENYL_ETHER', 'finechemicals'),
-(27, 'PHENYL PHOSPHATE DISODIUM', '3279-54-7', 'PHENYL_PHOSPHATE_DISODIUM', 'phosphates');
+INSERT INTO `products` (`id`, `name`, `synonyms`, `mf`, `mw`, `ms`, `appearance`, `purity`, `sor`, `casno`, `solubility`, `watercontent`, `storage`, `category`) VALUES
+(1, 'ISOPROPYL-BETA-D-THIOGALACTOPYRANOSIDE (IPTG) DIOXANE FREE', 'IPTG;Isopropyl-beta-D-thiogalactoside;IPTG, HEMIDIOXANE ADDUCT; ISOPROPYL-1-THIO-BETA-D-GALACTOPYRANOSIDE;ISOPROPYLTHIO-BETA- GALACTOSIDE;ISOPROPYLTHIO -BETA-THIOGALACTOSIDASE; ISOPROPYLTHIO-B-THIOGALACTOPYRANOSIDE;ISOPROPYL THIOGALACTOSIDE;ISOPROPYL-BETA-D-THIOGALACTOPYRANOSIDE, DIOXANE FREE;Isopropyl Î²-D-1 Thiogalactopyranoside; propan-2-yl 1-thio-beta-D-galactopyranoside;1-methylethyl 1-thio-D-galactopyranoside ISOPROPYL-BETA-D-THIOGALACTOPYRANOSIDE (IPTG) DIOXANE FREE', 'C9H18O5S', '238.30', 'ISOPROPYL-BETA-D-THIOGALACTOPYRANOSIDE_(IPTG)_DIOXANE_FREE.gif', 'White to off-white crystalline powder', 'Min 99%+', '-31.5 Â± 3.0Â° [a]D20(c=1,H2O)', '367-93-1', 'Soluble in water, and methanol', 'Max 1%', 'Shipped at Ambient Temperature. Store at +2 - 8Â°C.', 'carbohydrates'),
+(7, '5-BROMO-4-CHLORO-3-INDOLYL-B-D-GALACTOPYRANOSIDE [X-GAL]', '.beta.-D-Galactopyranoside 5-bromo-4-chloro-1H-indol-3-yl;5-Bromo-4-chloro-1H-indol-3- yl beta-D-galactopyranoside;5-Bromo-4-chloro-3-indolyl-.beta. -D-galactoside;5-Bromo-4-chloro-3-indolyl-b-D-galactoside; beta-D-Galactopyranoside, 5-bromo-4-chloro-1H-indol-3-yl;Xgal;X-GAL', 'C14H15BrClNO6', '408.629', '5-BROMO-4-CHLORO-3-INDOLYL-B-D-GALACTOPYRANOSIDE_[X-GAL].gif', 'White to off-white crystalline powder', 'Min 99%+', '-61.5 Â±3Â° ([Î±]D.20 (c=1,DMF:water,1:1)', '7240-90-6', 'Soluble in DMF (5% w/v) and DMSO (20 mg/ml),', 'Max 0.5%', 'Shipped at Ambient Temperature. Store at +2 - 8Â°C.', 'carbohydrates');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sample`
+--
+
+DROP TABLE IF EXISTS `sample`;
+CREATE TABLE IF NOT EXISTS `sample` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `synonyms` varchar(255) NOT NULL,
+  `mf` varchar(255) NOT NULL,
+  `mw` varchar(255) NOT NULL,
+  `ms` varchar(255) NOT NULL,
+  `appearance` varchar(255) NOT NULL,
+  `purity` varchar(255) NOT NULL,
+  `sor` varchar(255) NOT NULL,
+  `casno` varchar(255) NOT NULL,
+  `solubility` varchar(255) NOT NULL,
+  `watercontent` varchar(255) NOT NULL,
+  `storage` varchar(255) NOT NULL,
+  `category` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sample`
+--
+
+INSERT INTO `sample` (`id`, `name`, `synonyms`, `mf`, `mw`, `ms`, `appearance`, `purity`, `sor`, `casno`, `solubility`, `watercontent`, `storage`, `category`) VALUES
+(1, 'asd', 'asd', 'asd', 'asd', '', 'asd', 'asd', 'asd', 'asd', 'asd', 'asd', 'asd', 'carbohydrates'),
+(2, 'asd', 'asd', 'asd', 'asd', '', 'asd', 'asd', 'asd', 'asd', 'asd', 'as', 'asd', 'carbohydrates'),
+(3, 'asd', 'asd', 'asd', 'asdas', 'Array', 'asd', 'asd', 'asd', 'asd', 'asd', 'asd', 'asd', 'carbohydrates'),
+(4, 'asd', 'asd', 'asd', 'asdas', '', 'asd', 'asd', 'asd', 'asd', 'asd', 'asd', 'asd', 'carbohydrates'),
+(5, 'asd', 'asd', 'asd', 'asdas', 'asd', 'asd', 'asd', 'asd', 'asd', 'asd', 'asd', 'asd', 'carbohydrates');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL,
+  `user_name` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `user_name`, `password`) VALUES
+(1, 'sai', 'Anneboina@9');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

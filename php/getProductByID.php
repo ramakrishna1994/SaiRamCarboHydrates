@@ -17,9 +17,18 @@ while($row = mysqli_fetch_array($result)){
 	$json.='{';
 	$json.='"id":'.$row['id'].',';
 	$json.='"name":"'.$row['name'].'",';
-	$json.='"link":"'.$row['link'].'",';
-	$json.='"category":"'.$row['category'].'",';
-	$json.='"casno":"'.$row['casno'].'"';
+	$json.='"synonyms":"'.$row['synonyms'].'",';
+	$json.='"mf":"'.$row['mf'].'",';
+	$json.='"mw":"'.$row['mw'].'",';
+	$json.='"appearance":"'.$row['appearance'].'",';
+	$json.='"purity":"'.$row['purity'].'",';
+	$json.='"sor":"'.$row['sor'].'",';
+	$json.='"casno":"'.$row['casno'].'",';
+	$json.='"solubility":"'.$row['solubility'].'",';
+	$json.='"watercontent":"'.$row['watercontent'].'",';
+	$json.='"storage":"'.$row['storage'].'",';
+	$json.='"ms":"'.$row['ms'].'",';
+	$json.='"category":"'.$row['category'].'"';
 	$json.='},';
 			
 }

@@ -1,7 +1,7 @@
 showSpecificProductsDetails();
 function showSpecificProductsDetails(){
 	var innerhtml = '';
-	var searchValue = document.getElementById("searchValue").value;
+	var searchValue = '';
 	var category = document.getElementById("category").value;
 	var formData = new FormData();
 	formData.append( 'searchValue',searchValue);
@@ -27,15 +27,10 @@ function showSpecificProductsDetails(){
 							{
 								innerhtml += '	<tr >'
 											+'	<td>'+(i+1)+'</td>';
-											if(response[i].link!='')
-											{
-													innerhtml+= '<td><a href="'+response[i].category+'/'+response[i].link+'" target="_blank">'+response[i].name+'</a></td>';
 											
-											}
-											else{
-												innerhtml+= '<td>'+response[i].name+'</td>';
-											}
-											innerhtml+='<td>'+response[i].casno+'</td>'
+								innerhtml+= '<td><a href="showproduct.php?id='+response[i].id+'" 		target="_blank">'+response[i].name+'</a></td>';
+											
+								innerhtml+='<td>'+response[i].casno+'</td>'
 											+'	</tr>';
 											
 								

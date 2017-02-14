@@ -19,7 +19,6 @@ while($row = mysqli_fetch_array($result)){
 	$json.='{';
 	$json.='"id":'.$row['id'].',';
 	$json.='"name":"'.$row['name'].'",';
-	$json.='"link":"'.$row['link'].'",';
 	$json.='"category":"'.$row['category'].'",';
 	$json.='"casno":"'.$row['casno'].'"';
 	$json.='},';

@@ -6,6 +6,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="js/session.js"></script>
+	
     <link rel="stylesheet" type="text/css" href="css/header.css">
 	<link rel="stylesheet" type="text/css" href="css/footer.css">
 	<link rel="stylesheet" type="text/css" href="css/home.css">
@@ -31,7 +36,12 @@
 						</div>
 						<div class="col-sm-4">
 							<button type="button" class="btn btn-success btn-small" data-toggle="modal" data-target="#insertModal">Add New Product</button>
+							
 						</div>
+						<div class="col-sm-4">
+							<button type="button" class="btn btn-danger btn-small" onclick="logout()">Log Out</button>
+						</div>
+						
 					  </div>
 					  
 					<table class="table table-bordered">
@@ -40,7 +50,6 @@
 							<th>S.No</th>
 							<th>Product Name</th>
 							<th>CAS No.</th>
-							<th>Product Link</th>
 							<th>Category</th>
 							<th></th>
 							<th></th>
@@ -82,18 +91,86 @@
 							  <input type="text" class="form-control" id="name" >
 							</div>
 						  </div>
+						   <div class="form-group">
+							<label class="control-label col-sm-2" for="synonyms">Synonyms</label>
+							<div class="col-sm-10">
+							  <input type="text" class="form-control" id="synonyms" >
+							</div>
+						  </div>
+						  
+						  <div class="form-group">
+							<label class="control-label col-sm-2" for="mf">Molecular Formula</label>
+							<div class="col-sm-10">
+							  <input type="text" class="form-control" id="mf" >
+							</div>
+						  </div>
+						  
+						  <div class="form-group">
+							<label class="control-label col-sm-2" for="mw">Molecular Weight</label>
+							<div class="col-sm-10">
+							  <input type="text" class="form-control" id="mw" >
+							</div>
+						  </div>
+						  
+						  
+						  
 						  <div class="form-group">
 							<label class="control-label col-sm-2" for="casno">CAS No.*</label>
 							<div class="col-sm-10">
 							  <input type="text" class="form-control" id="casno" >
 							</div>
 						  </div>
+						  
 						  <div class="form-group">
-							<label class="control-label col-sm-2" for="link">Link*</label>
+							<label class="control-label col-sm-2" for="ms">Molecular Structure</label>
 							<div class="col-sm-10">
-							  <input type="text" class="form-control" id="link" >
+							  <input type="file" class="form-control" id="ms" name="ms">
 							</div>
 						  </div>
+						  
+						  <div class="form-group">
+							<label class="control-label col-sm-2" for="appearance">Appearance</label>
+							<div class="col-sm-10">
+							  <input type="text" class="form-control" id="appearance" >
+							</div>
+						  </div>
+						  
+						   <div class="form-group">
+							<label class="control-label col-sm-2" for="purity">Purity (By HPLC)</label>
+							<div class="col-sm-10">
+							  <input type="text" class="form-control" id="purity" >
+							</div>
+						  </div>
+						  
+						  <div class="form-group">
+							<label class="control-label col-sm-2" for="sor">Specific optical rotation</label>
+							<div class="col-sm-10">
+							  <input type="text" class="form-control" id="sor" >
+							</div>
+						  </div>
+						  
+						  <div class="form-group">
+							<label class="control-label col-sm-2" for="solubility">Solubility</label>
+							<div class="col-sm-10">
+							  <input type="text" class="form-control" id="solubility" >
+							</div>
+						  </div>
+						  
+						  <div class="form-group">
+							<label class="control-label col-sm-2" for="watercontent">Water content   (BY KF)</label>
+							<div class="col-sm-10">
+							  <input type="text" class="form-control" id="watercontent" >
+							</div>
+						  </div>
+						  
+						  
+						  <div class="form-group">
+							<label class="control-label col-sm-2" for="storage">Storage</label>
+							<div class="col-sm-10">
+							  <input type="text" class="form-control" id="storage" >
+							</div>
+						  </div>
+						  
 						  <div class="form-group">
 							<label class="control-label col-sm-2" for="category">Category*</label>
 							<div class="col-sm-10"> 
@@ -101,6 +178,7 @@
 								<option>carbohydrates</option>
 								<option>phosphates</option>
 								<option>finechemicals</option>
+								<option>others</option>
 							</select>
 							</div>
 						  </div>
@@ -143,24 +221,94 @@
 								
 							  </div>
 							  <input type="hidden" id="eid">
+						  
+						  
 						  <div class="form-group">
 							<label class="control-label col-sm-2" for="ename">Product Name*</label>
 							<div class="col-sm-10">
 							  <input type="text" class="form-control" id="ename" >
 							</div>
 						  </div>
+						   <div class="form-group">
+							<label class="control-label col-sm-2" for="esynonyms">Synonyms</label>
+							<div class="col-sm-10">
+							  <input type="text" class="form-control" id="esynonyms" >
+							</div>
+						  </div>
+						  
+						  <div class="form-group">
+							<label class="control-label col-sm-2" for="emf">Molecular Formula</label>
+							<div class="col-sm-10">
+							  <input type="text" class="form-control" id="emf" >
+							</div>
+						  </div>
+						  
+						  <div class="form-group">
+							<label class="control-label col-sm-2" for="emw">Molecular Weight</label>
+							<div class="col-sm-10">
+							  <input type="text" class="form-control" id="emw" >
+							</div>
+						  </div>
+						  
+						  
+						  
 						  <div class="form-group">
 							<label class="control-label col-sm-2" for="ecasno">CAS No.*</label>
 							<div class="col-sm-10">
 							  <input type="text" class="form-control" id="ecasno" >
 							</div>
 						  </div>
+						  
 						  <div class="form-group">
-							<label class="control-label col-sm-2" for="elink">Link*</label>
+							<label class="control-label col-sm-2" for="ems">Molecular Structure</label>
 							<div class="col-sm-10">
-							  <input type="text" class="form-control" id="elink" >
+							  <input type="file" class="form-control" id="ems" name="ms">
 							</div>
 						  </div>
+						  
+						  <div class="form-group">
+							<label class="control-label col-sm-2" for="eappearance">Appearance</label>
+							<div class="col-sm-10">
+							  <input type="text" class="form-control" id="eappearance" >
+							</div>
+						  </div>
+						  
+						   <div class="form-group">
+							<label class="control-label col-sm-2" for="epurity">Purity (By HPLC)</label>
+							<div class="col-sm-10">
+							  <input type="text" class="form-control" id="epurity" >
+							</div>
+						  </div>
+						  
+						  <div class="form-group">
+							<label class="control-label col-sm-2" for="esor">Specific optical rotation</label>
+							<div class="col-sm-10">
+							  <input type="text" class="form-control" id="esor" >
+							</div>
+						  </div>
+						  
+						  <div class="form-group">
+							<label class="control-label col-sm-2" for="esolubility">Solubility</label>
+							<div class="col-sm-10">
+							  <input type="text" class="form-control" id="esolubility" >
+							</div>
+						  </div>
+						  
+						  <div class="form-group">
+							<label class="control-label col-sm-2" for="ewatercontent">Water content   (BY KF)</label>
+							<div class="col-sm-10">
+							  <input type="text" class="form-control" id="ewatercontent" >
+							</div>
+						  </div>
+						  
+						  
+						  <div class="form-group">
+							<label class="control-label col-sm-2" for="estorage">Storage</label>
+							<div class="col-sm-10">
+							  <input type="text" class="form-control" id="estorage" >
+							</div>
+						  </div>
+						  
 						  <div class="form-group">
 							<label class="control-label col-sm-2" for="ecategory">Category*</label>
 							<div class="col-sm-10"> 
@@ -168,9 +316,12 @@
 								<option>carbohydrates</option>
 								<option>phosphates</option>
 								<option>finechemicals</option>
+								<option>others</option>
 							</select>
 							</div>
 						  </div>
+						  
+						  
 						  
 						  <div class="form-group"> 
 							<div class="col-sm-offset-2 col-sm-10">
@@ -196,10 +347,7 @@
 	</div>
 	
 	
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="js/maincommon.js"></script>
-	<script src="js/loadenquiryform.js"></script>
+	<script src="js/common.js"></script>
 	<script src="js/cpanel.js"></script>
 </body>
 
