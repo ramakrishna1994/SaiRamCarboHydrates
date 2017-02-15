@@ -22,11 +22,18 @@ $target_dir = "../productimages/".$category."/";
 $imagename = str_replace(' ', '_', $name);
 $imagename = str_replace(',', '_', $imagename);
 
-$temp = explode(".", $_FILES["ms"]["name"]);
-$newfilename = $imagename . '.' . end($temp);
-move_uploaded_file($_FILES["ms"]["tmp_name"], $target_dir . $newfilename);
+if(!empty($_FILES['ms']['name'])){
+		$temp = explode(".", $_FILES["ms"]["name"]);
+		$newfilename = $imagename . '.' . end($temp);
+		move_uploaded_file($_FILES["ms"]["tmp_name"], $target_dir . $newfilename);
 
-$insertquery='insert into products(name,synonyms,mf,mw,ms,appearance,purity,sor,casno,solubility,watercontent,storage,category) values("'.$name.'","'.$synonyms.'","'.$mf.'","'.$mw.'","'.$newfilename.'","'.$appearance.'","'.$purity.'","'.$sor.'","'.$casno.'","'.$solubility.'","'.$watercontent.'","'.$storage.'","'.$category.'")' ;
+		$insertquery='insert into products(name,synonyms,mf,mw,ms,appearance,purity,sor,casno,solubility,watercontent,storage,category) values("'.$name.'","'.$synonyms.'","'.$mf.'","'.$mw.'","'.$newfilename.'","'.$appearance.'","'.$purity.'","'.$sor.'","'.$casno.'","'.$solubility.'","'.$watercontent.'","'.$storage.'","'.$category.'")' ;
+
+}
+else{
+	
+	$insertquery='insert into products(name,synonyms,mf,mw,appearance,purity,sor,casno,solubility,watercontent,storage,category) values("'.$name.'","'.$synonyms.'","'.$mf.'","'.$mw.'","'.$appearance.'","'.$purity.'","'.$sor.'","'.$casno.'","'.$solubility.'","'.$watercontent.'","'.$storage.'","'.$category.'")' ;
+}
 
 $result=mysqli_query($con,$insertquery) or die(mysqli_error($con));
 

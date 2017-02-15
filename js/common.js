@@ -3,6 +3,14 @@ $('#footerMain').load("footer.html");
 $('#searchResults').load("searchresultsmodal.html");
 
 var colors = ["danger","info","warning","default","success","active"];
+function pressedOnSearchKey(e){
+	  if(e.keyCode === 13){
+            //e.preventDefault(); // Ensure it is only this code that rusn
+			getSearchResults();
+            
+        }
+
+}
 function getSearchResults(){
 	
 	$("#searchResultsModal").modal("show");
@@ -36,8 +44,6 @@ function getSearchResults(){
 														
 								innerhtml+= '<td><a href="showproduct.php?id='+response[i].id+'" 		target="_blank">'+response[i].name+'</a></td>';
 											
-								innerhtml+= '<td>'+response[i].category+'</td>'
-													 +	'</tr>';
 											
 								
 							}

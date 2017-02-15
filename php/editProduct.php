@@ -22,13 +22,17 @@ $target_dir = "../productimages/".$category."/";
 $imagename = str_replace(' ', '_', $name);
 $imagename = str_replace(',', '_', $imagename);
 
-$temp = explode(".", $_FILES["ms"]["name"]);
-$newfilename = $imagename . '.' . end($temp);
-move_uploaded_file($_FILES["ms"]["tmp_name"], $target_dir . $newfilename);
+if(!empty($_FILES['ms']['name'])){	
+	$temp = explode(".", $_FILES["ms"]["name"]);
+	$newfilename = $imagename . '.' . end($temp);
+	move_uploaded_file($_FILES["ms"]["tmp_name"], $target_dir . $newfilename);
 
-
-$updatequery = "update products set name='".$name."',synonyms='".$synonyms."',mf='".$mf."',mw='".$mw."',appearance='".$appearance."',purity='".$purity."',sor='".$sor."',casno='".$casno."',solubility='".$solubility."',watercontent='".$watercontent."',storage='".$storage."',category='".$category."',ms='".$newfilename."' where id=".$id.";";
-
+	$updatequery = "update products set name='".$name."',synonyms='".$synonyms."',mf='".$mf."',mw='".$mw."',appearance='".$appearance."',purity='".$purity."',sor='".$sor."',casno='".$casno."',solubility='".$solubility."',watercontent='".$watercontent."',storage='".$storage."',category='".$category."',ms='".$newfilename."' where id=".$id.";";
+}
+else{
+	$updatequery = "update products set name='".$name."',synonyms='".$synonyms."',mf='".$mf."',mw='".$mw."',appearance='".$appearance."',purity='".$purity."',sor='".$sor."',casno='".$casno."',solubility='".$solubility."',watercontent='".$watercontent."',storage='".$storage."',category='".$category."' where id=".$id.";";
+	
+}
 $result=mysqli_query($con,$updatequery) or die(mysqli_error($con));
 
 $json='{"error":0}';

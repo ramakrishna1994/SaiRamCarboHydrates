@@ -14,7 +14,7 @@ $casno=trim(mysqli_real_escape_string($con,$_POST['casno']));
 $qty=trim(mysqli_real_escape_string($con,$_POST['qty']));
 
 
-$to = "ramakrishnasaradhi@gmail.com";
+$to = "saicarbohydrates@yahoo.com";
 
 
 $mail = new PHPMailer;
@@ -28,14 +28,14 @@ $mail->Host = "sg2plcpnl0098.prod.sin2.secureserver.net";
 //Set this to true if SMTP host requires authentication to send email
 $mail->SMTPAuth = true;                          
 //Provide username and password     
-$mail->Username = "sairamanneboina";                 
-$mail->Password = "Anneboina@9";                           
+$mail->Username = "info@saicarbohydrates.com";                 
+$mail->Password = "gaddaguti@9";                           
 //If SMTP requires TLS encryption then set it
                         
 //Set TCP port to connect to 
 $mail->Port = 25;                                   
 
-$mail->From = "";
+$mail->From = "info@saicarbohydrates.com";
 $mail->FromName = "Website Enquiry";
 
 $mail->addAddress($to);

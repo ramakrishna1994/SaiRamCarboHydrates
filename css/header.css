@@ -141,3 +141,9 @@ body {
         font-size: 42px;
     }
 }
+
+.modal-xl {
+    width: 90%;
+   max-width:1200px;
+  }
+

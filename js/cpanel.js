@@ -27,7 +27,7 @@ function showProductsDetails(){
 							{
 								innerhtml += '	<tr class="'+colors[i%6]+'">'
 											+'	<td>'+(i+1)+'</td>'
-											+'	<td>'+response[i].name+'</td>'
+											+'	<td><a href="showproduct.php?id='+response[i].id+'" 		target="_blank">'+response[i].name+'</a></td>'
 											+'	<td>'+response[i].casno+'</td>';
 											
 								innerhtml+= '<td>'+response[i].category+'</td>'
