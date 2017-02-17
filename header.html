@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default">
-            <div class="container">
-                <a class="navbar-brand" href="home.html" >Sai Carbohydrates</a>
+            <div class="container-fluid">
+                <a class="navbar-brand" href="home.html" ><img src="images/logo1.png" ></a>
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                         <span class="icon-bar"></span>
@@ -23,24 +23,26 @@
 						</li>
                         <li><a href="contact.html">CONTACT</a></li>
                     </ul>
+					<div class="container">
+					
+						<div class="row">
+						<div class="col-sm-6 ">
+						  <div class="input-group ">
+							<input type="text" class="form-control" placeholder="Search In All Products Using CAS No. or Product Name" id="query" onkeypress="pressedOnSearchKey(event)" autofocus>
+							<div class="input-group-btn">
+							  <button class="btn btn-default" type="submit" onclick="getSearchResults()" id="querybutton">
+								<i class="glyphicon glyphicon-search" ></i>
+							  </button>
+							</div>
+						</div>
+						</div>
+							  <div class=" col-sm-3 text-left" >
+									<a>Call Us : +91 12345 12345</a><br>
+									<a href="mailto:info@saicarbohydrates.com">Mail Us : info@saicarbohydrates.com</a>
+							  </div>
+						  </div>
+					</div>
                 </div>
             </div>
-			<div class="container">
-				<div class="row">
-				<div class="col-sm-6 col-sm-offset-2 ">
-				  <div class="input-group ">
-					<input type="text" class="form-control" placeholder="Search In All Products Using CAS No. or Product Name" id="query" onkeypress="pressedOnSearchKey(event)">
-					<div class="input-group-btn">
-					  <button class="btn btn-default" type="submit" onclick="getSearchResults()" id="querybutton">
-						<i class="glyphicon glyphicon-search" ></i>
-					  </button>
-					</div>
-				</div>
-				</div>
-					  <div class="col-sm-offset-1 col-sm-3 text-left" >
-							<a>Call Us : +91 12345 12345</a><br>
-							<a href="mailto:info@saicarbohydrates.com">Mail Us : info@saicarbohydrates.com</a>
-					  </div>
-				  </div>
-			</div>
+			
         </nav>

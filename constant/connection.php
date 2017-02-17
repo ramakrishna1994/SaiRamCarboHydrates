@@ -1,5 +1,6 @@
 <?php 
-//require_once '/home/saradhi66/public_html/phpmailer/PHPMailerAutoload.php';
+set_include_path(dirname(__FILE__)."/../");
+//require_once 'phpmailer/PHPMailerAutoload.php';
 
 $db_host="localhost";
 $db_user="saradhi";

@@ -28,7 +28,26 @@ while($row = mysqli_fetch_array($result)){
 	$json.='"watercontent":"'.$row['watercontent'].'",';
 	$json.='"storage":"'.$row['storage'].'",';
 	$json.='"ms":"'.$row['ms'].'",';
-	$json.='"category":"'.$row['category'].'"';
+	$json.='"category":"'.$row['category'].'",';
+	
+	$json.='"assay":"'.$row['assay_by_hplc'].'",';
+	$json.='"mp":"'.$row['melting_point'].'",';
+	$json.='"ph":"'.$row['ph'].'",';
+	$json.='"boiling":"'.$row['boiling_point'].'",';
+	$json.='"dioxane":"'.$row['dioxane_free'].'",';
+	$json.='"research":"'.$row['research'].'",';
+	$json.='"description":"'.$row['description'].'",';
+	$json.='"usage":"'.$row['usage_product'].'",';
+	$json.='"application":"'.$row['application'].'",';
+	$json.='"identityir":"'.$row['identity_ir'].'",';
+	$json.='"identityftir":"'.$row['identity_ftir'].'",';
+	$json.='"transport":"'.$row['transport'].'",';
+	$json.='"phenol":"'.$row['free_phenol'].'",';
+	$json.='"nitro":"'.$row['p_nitro_phenol'].'",';
+	$json.='"moisturecontent":"'.$row['moisture_content'].'",';
+	$json.='"freephosphates":"'.$row['free_inorganics'].'",';
+	$json.='"molar":"'.$row['molar_absence'].'"';
+	
 	$json.='},';
 			
 }

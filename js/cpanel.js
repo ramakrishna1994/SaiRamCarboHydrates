@@ -73,6 +73,24 @@ function insertProduct(){
 	var storage = document.getElementById("storage").value;
 	var category = document.getElementById("category").value;
 	
+	var assay = document.getElementById("assay").value;
+	var mp = document.getElementById("mp").value;
+	var ph = document.getElementById("ph").value;
+	var boiling = document.getElementById("boiling").value;
+	var dioxane = document.getElementById("dioxane").value;
+	var research = document.getElementById("research").value;
+	var description = document.getElementById("description").value;
+	var usage = document.getElementById("usage").value;
+	var application = document.getElementById("application").value;
+	var identityir = document.getElementById("identityir").value;
+	var identityftir = document.getElementById("identityftir").value;
+	var transport = document.getElementById("transport").value;
+	var phenol = document.getElementById("phenol").value;
+	var nitro = document.getElementById("nitro").value;
+	var moisturecontent = document.getElementById("moisturecontent").value;
+	var freephosphates = document.getElementById("freephosphates").value;
+	var molar = document.getElementById("molar").value;
+	
 	document.getElementById("insertStatus").innerHTML=fillLoader();
 	if(name == ""){
 		document.getElementById("insertStatus").innerHTML='<center><font color="red">Please Enter Product Name</font></center>';
@@ -99,6 +117,25 @@ function insertProduct(){
 	formData.append('watercontent',watercontent);
 	formData.append('storage',storage);
 	formData.append('category',category);
+	
+	formData.append('assay',assay);
+	formData.append('mp',mp);
+	formData.append('ph',ph);
+	formData.append('boiling',boiling);
+	formData.append('dioxane',dioxane);
+	formData.append('research',research);
+	formData.append('description',description);
+	formData.append('usage',usage);
+	formData.append('application',application);
+	formData.append('identityir',identityir);
+	formData.append('identityftir',identityftir);
+	formData.append('transport',transport);
+	formData.append('phenol',phenol);
+	formData.append('nitro',nitro);
+	formData.append('moisturecontent',moisturecontent);
+	formData.append('freephosphates',freephosphates);
+	formData.append('molar',molar);
+	
 	$(document).ready(function(){
 					
 					$.ajax({
@@ -124,6 +161,25 @@ function insertProduct(){
 							document.getElementById("watercontent").value = "";
 							document.getElementById("storage").value = "";
 							document.getElementById("category").value = "";
+							
+							document.getElementById("assay").value = "";
+							document.getElementById("mp").value = "";
+							document.getElementById("ph").value = "";
+							document.getElementById("boiling").value = "";
+							document.getElementById("dioxane").value = "";
+							document.getElementById("research").value = "";
+							document.getElementById("description").value = "";
+							document.getElementById("usage").value = "";
+							document.getElementById("application").value = "";
+							document.getElementById("identityir").value = "";
+							document.getElementById("identityftir").value = "";
+							document.getElementById("transport").value = "";
+							document.getElementById("phenol").value = "";
+							document.getElementById("nitro").value = "";
+							document.getElementById("moisturecontent").value = "";
+							document.getElementById("freephosphates").value = "";
+							document.getElementById("molar").value = "";
+							
 							showProductsDetails();
 						}
 						});
@@ -148,7 +204,7 @@ function deleteProduct(id){
 						success: function (response) 
 						{
 							
-							document.getElementById("deleteStatus").innerHTML='<center><font color="green">Record Deleted Successfully!!</font></center>';
+							document.getElementById("deleteStatus").innerHTML='<center><font color="green">Product Deleted Successfully!!</font></center>';
 							showProductsDetails();
 						}
 						});
@@ -159,19 +215,6 @@ function deleteProduct(id){
 function editProduct(id){
 	$("#editModal").modal("show");
 	
-	var ename = document.getElementById("ename").value;
-	var esynonyms = document.getElementById("esynonyms").value;
-	var emf = document.getElementById("emf").value;
-	var emw = document.getElementById("emw").value;
-	
-	var eappearance = document.getElementById("eappearance").value;
-	var epurity = document.getElementById("epurity").value;
-	var esor = document.getElementById("esor").value;
-	var ecasno = document.getElementById("ecasno").value;
-	var esolubility = document.getElementById("esolubility").value;
-	var ewatercontent = document.getElementById("ewatercontent").value;
-	var estorage = document.getElementById("estorage").value;
-	var ecategory = document.getElementById("ecategory").value;
 	
 	document.getElementById("eid").value = id;
 	var formData = new FormData();
@@ -202,6 +245,25 @@ function editProduct(id){
 							document.getElementById("ewatercontent").value = response[0].watercontent;
 							document.getElementById("estorage").value = response[0].storage;
 							document.getElementById("ecategory").value = response[0].category;
+							
+							document.getElementById("eassay").value = response[0].assay;
+							document.getElementById("emp").value = response[0].mp;
+							document.getElementById("eph").value = response[0].ph;
+							document.getElementById("eboiling").value = response[0].boiling;
+							document.getElementById("edioxane").value = response[0].dioxane;
+							document.getElementById("eresearch").value = response[0].research;
+							document.getElementById("edescription").value = response[0].description;
+							document.getElementById("eusage").value = response[0].usage;
+							document.getElementById("eapplication").value = response[0].application;
+							document.getElementById("eidentityir").value = response[0].identityir;
+							document.getElementById("eidentityftir").value = response[0].identityftir;
+							document.getElementById("etransport").value = response[0].transport;
+							document.getElementById("ephenol").value = response[0].phenol;
+							document.getElementById("enitro").value = response[0].nitro;
+							document.getElementById("emoisturecontent").value = response[0].moisturecontent;
+							document.getElementById("efreephosphates").value = response[0].freephosphates;
+							document.getElementById("emolar").value = response[0].molar;
+							
 							document.getElementById("editStatus").innerHTML='';
 							
 						}
@@ -229,6 +291,24 @@ function insertModifiedProduct(){
 	var storage = document.getElementById("estorage").value;
 	var category = document.getElementById("ecategory").value;
 	
+	var assay = document.getElementById("eassay").value;
+	var mp = document.getElementById("emp").value;
+	var ph = document.getElementById("eph").value;
+	var boiling = document.getElementById("eboiling").value;
+	var dioxane = document.getElementById("edioxane").value;
+	var research = document.getElementById("eresearch").value;
+	var description = document.getElementById("edescription").value;
+	var usage = document.getElementById("eusage").value;
+	var application = document.getElementById("eapplication").value;
+	var identityir = document.getElementById("eidentityir").value;
+	var identityftir = document.getElementById("eidentityftir").value;
+	var transport = document.getElementById("etransport").value;
+	var phenol = document.getElementById("ephenol").value;
+	var nitro = document.getElementById("enitro").value;
+	var moisturecontent = document.getElementById("emoisturecontent").value;
+	var freephosphates = document.getElementById("efreephosphates").value;
+	var molar = document.getElementById("emolar").value;
+	
 	document.getElementById("editStatus").innerHTML=fillLoader();
 	if(name == ""){
 		document.getElementById("editStatus").innerHTML='<center><font color="red">Please Enter Product Name</font></center>';
@@ -239,7 +319,7 @@ function insertModifiedProduct(){
 		return;	
 	}
 	if(category == ""){
-		document.getElementById("editStatus").innerHTML='<center><font color="red">Please Enter Category</font></center>';
+		document.getElementById("editStatus").innerHTML='<center><font color="red">Please Select Category</font></center>';
 		return;	
 	}
 	formData.append('id',id);
@@ -256,6 +336,26 @@ function insertModifiedProduct(){
 	formData.append('watercontent',watercontent);
 	formData.append('storage',storage);
 	formData.append('category',category);
+	
+	formData.append('assay',assay);
+	formData.append('mp',mp);
+	formData.append('ph',ph);
+	formData.append('boiling',boiling);
+	formData.append('dioxane',dioxane);
+	formData.append('research',research);
+	formData.append('description',description);
+	formData.append('usage',usage);
+	formData.append('application',application);
+	formData.append('identityir',identityir);
+	formData.append('identityftir',identityftir);
+	formData.append('transport',transport);
+	formData.append('phenol',phenol);
+	formData.append('nitro',nitro);
+	formData.append('moisturecontent',moisturecontent);
+	formData.append('freephosphates',freephosphates);
+	formData.append('molar',molar);
+	
+	
 	$(document).ready(function(){
 					
 					$.ajax({
@@ -281,6 +381,25 @@ function insertModifiedProduct(){
 							document.getElementById("estorage").value = "";
 							document.getElementById("ecategory").value = "";
 							document.getElementById("ems").value = "";
+							
+							document.getElementById("eassay").value = "";
+							document.getElementById("emp").value = "";
+							document.getElementById("eph").value = "";
+							document.getElementById("eboiling").value = "";
+							document.getElementById("edioxane").value = "";
+							document.getElementById("eresearch").value = "";
+							document.getElementById("edescription").value = "";
+							document.getElementById("eusage").value = "";
+							document.getElementById("eapplication").value = "";
+							document.getElementById("eidentityir").value = "";
+							document.getElementById("eidentityftir").value = "";
+							document.getElementById("etransport").value = "";
+							document.getElementById("ephenol").value = "";
+							document.getElementById("enitro").value = "";
+							document.getElementById("emoisturecontent").value = "";
+							document.getElementById("efreephosphates").value = "";
+							document.getElementById("emolar").value = "";
+							
 							showProductsDetails();
 						}
 						});
@@ -297,7 +416,7 @@ function logout(){
 						contentType: false,
 						success: function (response) 
 						{
-							window.open("Login.html","_self");
+							window.open("login.html","_self");
 						}
 						});
 				});
