@@ -1,3 +1,20 @@
+
+<html>
+
+<head>
+    <title><?php echo 'Sai Carbohydrates | Product Name : '.$details[0]." | CAS No : ".$details[2]." |  Synonyms : ".$details[1]; ?></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-------->
+	<link rel='shortcut icon' href='images/logo.jpg' type='image/x-icon'/ >
+	<!------->
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/header.css">
+	<link rel="stylesheet" type="text/css" href="css/footer.css">
+	<link rel="stylesheet" type="text/css" href="css/home.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</head>
 <?php
 
 require_once 'constant/connection.php';
@@ -12,7 +29,7 @@ $selectquery = "select * from products where id= ".$id.";";
 $result=mysqli_query($con,$selectquery) or die(mysqli_error($con));
 $details = array();
 $category;
-
+$others;
 $detailsheaders=array("Product Name","Synonyms","CAS Registry Number","Molecular Formula","Molecular Weight","Molecular Structure","Appearance","Purity (By HPLC)","Specific optical rotation","Solubility","Water content (BY KF)","storage","Assay(By HPLC)","Melting point","Boiling Point","pH(5% in water","Dioxane free","For Research Use Only","Description","Usage","Application","Identity(IR)","Identity (FTIR)","Transport information","Free Phenol","P-Nitro phenol content","Moisture Content (by KF)","Free Inorganic Phosphates (as PO4)","Molar Absorbance ϵ312 max UV");
 
 while($row = mysqli_fetch_array($result)){
@@ -46,29 +63,13 @@ while($row = mysqli_fetch_array($result)){
 	$details[26]=$row['moisture_content'];
 	$details[27]=$row['free_inorganics'];
 	$details[28]=$row['molar_absence'];
+	$others=$row['others'];
 	
 	$category=$row['category'];
 			
 }
 
 ?>
-<html>
-
-<head>
-    <title><?php echo 'Sai Carbohydrates | Product Name : '.$details[0]." | CAS No : ".$details[2]." |  Synonyms : ".$details[1]; ?></title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-------->
-	<link rel='shortcut icon' href='images/logo.jpg' type='image/x-icon'/ >
-	<!------->
-
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/header.css">
-	<link rel="stylesheet" type="text/css" href="css/footer.css">
-	<link rel="stylesheet" type="text/css" href="css/home.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-</head>
-
 <body>
     <div class="header-nightsky" id="headerMain">
         <!--Header will be filled dynamically from "mainheader.html" file-->
@@ -78,7 +79,7 @@ while($row = mysqli_fetch_array($result)){
 	
 	
 	
-	<div class="container " style="margin-top:35px">
+	<div class="container" style="margin-top:35px">
 		<div class="row">
 			<div class="col-sm-8">
 					 
@@ -92,8 +93,8 @@ while($row = mysqli_fetch_array($result)){
 							for($i=0;$i<count($details);$i++){
 									if($i!=5){
 											if($details[$i]!="") {
-												echo 	'<tr>
-														<td><b>'.$detailsheaders[$i].'</b></td>
+												echo 	'<tr >
+														<td style="width:200px;"><b>'.$detailsheaders[$i].'</b></td>
 														<td>'.$details[$i].'</td>
 														</tr>';
 											}
@@ -102,13 +103,18 @@ while($row = mysqli_fetch_array($result)){
 												if($details[$i]!="") {
 												echo 	'<tr>
 														<td><b>'.$detailsheaders[$i].'</b></td>
-														<td><img src="productimages/'.$category.'/'.$details[$i].'"></td>
+														<td style="width:200px;"><img src="productimages/'.$category.'/'.$details[$i].'"></td>
 														</tr>';
 											}
 									}
 							
 							}
-							
+							if($others!="") {
+												echo 	'<tr>
+														<td><b>Others</b></td>
+														<td style="width:200px;">'.$others.'</td>
+														</tr>';
+							}
 						?>
 						
 						</tbody>

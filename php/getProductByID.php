@@ -46,6 +46,7 @@ while($row = mysqli_fetch_array($result)){
 	$json.='"nitro":"'.$row['p_nitro_phenol'].'",';
 	$json.='"moisturecontent":"'.$row['moisture_content'].'",';
 	$json.='"freephosphates":"'.$row['free_inorganics'].'",';
+	$json.='"others":"'.$row['others'].'",';
 	$json.='"molar":"'.$row['molar_absence'].'"';
 	
 	$json.='},';

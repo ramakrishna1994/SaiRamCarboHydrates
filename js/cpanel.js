@@ -90,6 +90,7 @@ function insertProduct(){
 	var moisturecontent = document.getElementById("moisturecontent").value;
 	var freephosphates = document.getElementById("freephosphates").value;
 	var molar = document.getElementById("molar").value;
+	var others = document.getElementById("others").value;
 	
 	document.getElementById("insertStatus").innerHTML=fillLoader();
 	if(name == ""){
@@ -135,6 +136,7 @@ function insertProduct(){
 	formData.append('moisturecontent',moisturecontent);
 	formData.append('freephosphates',freephosphates);
 	formData.append('molar',molar);
+	formData.append('others',others);
 	
 	$(document).ready(function(){
 					
@@ -179,6 +181,7 @@ function insertProduct(){
 							document.getElementById("moisturecontent").value = "";
 							document.getElementById("freephosphates").value = "";
 							document.getElementById("molar").value = "";
+							document.getElementById("others").value = "";
 							
 							showProductsDetails();
 						}
@@ -263,6 +266,7 @@ function editProduct(id){
 							document.getElementById("emoisturecontent").value = response[0].moisturecontent;
 							document.getElementById("efreephosphates").value = response[0].freephosphates;
 							document.getElementById("emolar").value = response[0].molar;
+							document.getElementById("eothers").value = response[0].others;
 							
 							document.getElementById("editStatus").innerHTML='';
 							
@@ -308,6 +312,7 @@ function insertModifiedProduct(){
 	var moisturecontent = document.getElementById("emoisturecontent").value;
 	var freephosphates = document.getElementById("efreephosphates").value;
 	var molar = document.getElementById("emolar").value;
+	var others = document.getElementById("eothers").value;
 	
 	document.getElementById("editStatus").innerHTML=fillLoader();
 	if(name == ""){
@@ -354,6 +359,7 @@ function insertModifiedProduct(){
 	formData.append('moisturecontent',moisturecontent);
 	formData.append('freephosphates',freephosphates);
 	formData.append('molar',molar);
+	formData.append('others',others);
 	
 	
 	$(document).ready(function(){
@@ -399,6 +405,7 @@ function insertModifiedProduct(){
 							document.getElementById("emoisturecontent").value = "";
 							document.getElementById("efreephosphates").value = "";
 							document.getElementById("emolar").value = "";
+							document.getElementById("eothers").value = "";
 							
 							showProductsDetails();
 						}
