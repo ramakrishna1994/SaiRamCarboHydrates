@@ -1,20 +1,3 @@
-
-<html>
-
-<head>
-    <title><?php echo 'Sai Carbohydrates | Product Name : '.$details[0]." | CAS No : ".$details[2]." |  Synonyms : ".$details[1]; ?></title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-------->
-	<link rel='shortcut icon' href='images/logo.jpg' type='image/x-icon'/ >
-	<!------->
-
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/header.css">
-	<link rel="stylesheet" type="text/css" href="css/footer.css">
-	<link rel="stylesheet" type="text/css" href="css/home.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-</head>
 <?php
 
 require_once 'constant/connection.php';
@@ -30,7 +13,7 @@ $result=mysqli_query($con,$selectquery) or die(mysqli_error($con));
 $details = array();
 $category;
 $others;
-$detailsheaders=array("Product Name","Synonyms","CAS Registry Number","Molecular Formula","Molecular Weight","Molecular Structure","Appearance","Purity (By HPLC)","Specific optical rotation","Solubility","Water content (BY KF)","storage","Assay(By HPLC)","Melting point","Boiling Point","pH(5% in water","Dioxane free","For Research Use Only","Description","Usage","Application","Identity(IR)","Identity (FTIR)","Transport information","Free Phenol","P-Nitro phenol content","Moisture Content (by KF)","Free Inorganic Phosphates (as PO4)","Molar Absorbance ϵ312 max UV");
+$detailsheaders=array("Product Name","Synonyms","CAS Registry Number","Molecular Formula","Molecular Weight","Molecular Structure","Appearance","Purity (By HPLC)","Specific optical rotation","Solubility","Water content (BY KF)","storage","Assay(By HPLC)","Melting point","Boiling Point","pH(5% in water)","Dioxane free","For Research Use Only","Description","Usage","Application","Identity(IR)","Identity (FTIR)","Transport information","Free Phenol","P-Nitro phenol content","Moisture Content (by KF)","Free Inorganic Phosphates (as PO4)","Molar Absorbance ϵ312 max UV");
 
 while($row = mysqli_fetch_array($result)){
 	$details[0]=$row['name'];
@@ -70,6 +53,23 @@ while($row = mysqli_fetch_array($result)){
 }
 
 ?>
+<html>
+
+<head>
+    <title><?php echo 'Sai Carbohydrates | Product Name : '.$details[0]." | CAS No : ".$details[2]." |  Synonyms : ".$details[1]; ?></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-------->
+	<link rel='shortcut icon' href='images/logo.jpg' type='image/x-icon'/ >
+	<!------->
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/header.css">
+	<link rel="stylesheet" type="text/css" href="css/footer.css">
+	<link rel="stylesheet" type="text/css" href="css/home.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</head>
+
 <body>
     <div class="header-nightsky" id="headerMain">
         <!--Header will be filled dynamically from "mainheader.html" file-->
