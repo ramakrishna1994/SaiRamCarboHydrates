@@ -10,43 +10,53 @@ function showProductsDetails(){
 	$(document).ready(function(){
 					
 					$.ajax({
-						url: "php/getAllProductsDetails.php",// give your url
 						type: "POST",
 						data: formData,
-						dataType: 'json',
+						url: "php/getAllProductsDetails.php",// give your url
+						dataType: "xml", // type of file you are trying to read
 						processData: false,
 						contentType: false,
 						success: function (response) 
-						{
-							if(response[response.length-1].error == 1)
+						{	
+							if($(response).find('error').text() == 1)
 							{
 									document.getElementById("productstable").innerHTML = '<tr><td colspan="7"><center><font size="2px" color="red">No Results Found !!</font></center></td></tr>';
 									return;
 							}
-							for(var i=0;i<response.length-1;i++)
-							{
-								innerhtml += '	<tr class="'+colors[i%6]+'">'
-											+'	<td>'+(i+1)+'</td>'
-											+'	<td><a href="showproduct.php?id='+response[i].id+'" 		target="_blank">'+response[i].name+'</a></td>'
-											+'	<td>'+response[i].casno+'</td>';
+							
+							 $(response).find('product').each(function(index){
+							 
+								innerhtml += '	<tr class="'+colors[index%6]+'">'
+											+'	<td>'+(index+1)+'</td>'
+											+'	<td><a href="showproduct.php?id='+$(this).find('id').text()+'" target="_blank">'+$(this).find('name').text()+'</a></td>'
+											+'	<td>'+$(this).find('casno').text()+'</td>';
 											
-								innerhtml+= '<td>'+response[i].category+'</td>'
+								innerhtml+= '<td>'+$(this).find('category').text()+'</td>'
 											+'	<td><button class="btn btn-info" '
-											+'	onclick="editProduct('+response[i].id+')">Edit'
+											+'	onclick="editProduct('+$(this).find('id').text()+')">Edit'
 											+'	</button></td>'
 											+'	<td><button class="btn btn-danger" '
-											+'	onclick="deleteProduct('+response[i].id+')">Delete'
+											+'	onclick="deleteProduct('+$(this).find('id').text()+')">Delete'
 											+'	</button></td>'
 											+'	</tr>';
 											
 								
-							}
+								
+							});
 							
-							innerhtml+='</tbody></table>';
+							
 							document.getElementById("productstable").innerHTML = innerhtml;
-						}
+							
+							
+						},error: function(){alert("Error: Something went wrong");}
 						});
 				});
+}
+
+function parse(document){
+  $(document).find("book").each(function(){
+     // this is where all the reading and writing will happen
+  });
 }
 
 function fillLoader(){
@@ -229,44 +239,44 @@ function editProduct(id){
 						url: "php/getProductByID.php",// give your url
 						type: "POST",
 						data: formData,
-						dataType: 'json',
+						dataType: 'xml',
 						processData: false,
 						contentType: false,
 						success: function (response) 
 						{
 							
-							document.getElementById("ename").value = response[0].name;
-							document.getElementById("esynonyms").value = response[0].synonyms;
-							document.getElementById("emf").value = response[0].mf;
-							document.getElementById("emw").value = response[0].mw;
+							document.getElementById("ename").value = $(response).find('name').text();
+							document.getElementById("esynonyms").value = $(response).find('synonyms').text();
+							document.getElementById("emf").value = $(response).find('mf').text();
+							document.getElementById("emw").value = $(response).find('mw').text();
 							//document.getElementById("ems").value = response[0].ms;
-							document.getElementById("eappearance").value = response[0].appearance;
-							document.getElementById("epurity").value = response[0].purity;
-							document.getElementById("esor").value = response[0].sor;
-							document.getElementById("ecasno").value = response[0].casno;
-							document.getElementById("esolubility").value = response[0].solubility;
-							document.getElementById("ewatercontent").value = response[0].watercontent;
-							document.getElementById("estorage").value = response[0].storage;
-							document.getElementById("ecategory").value = response[0].category;
+							document.getElementById("eappearance").value = $(response).find('appearance').text();
+							document.getElementById("epurity").value = $(response).find('purity').text();
+							document.getElementById("esor").value = $(response).find('sor').text();
+							document.getElementById("ecasno").value = $(response).find('casno').text();
+							document.getElementById("esolubility").value = $(response).find('solubility').text();
+							document.getElementById("ewatercontent").value = $(response).find('watercontent').text();
+							document.getElementById("estorage").value = $(response).find('storage').text();
+							document.getElementById("ecategory").value = $(response).find('category').text();
 							
-							document.getElementById("eassay").value = response[0].assay;
-							document.getElementById("emp").value = response[0].mp;
-							document.getElementById("eph").value = response[0].ph;
-							document.getElementById("eboiling").value = response[0].boiling;
-							document.getElementById("edioxane").value = response[0].dioxane;
-							document.getElementById("eresearch").value = response[0].research;
-							document.getElementById("edescription").value = response[0].description;
-							document.getElementById("eusage").value = response[0].usage;
-							document.getElementById("eapplication").value = response[0].application;
-							document.getElementById("eidentityir").value = response[0].identityir;
-							document.getElementById("eidentityftir").value = response[0].identityftir;
-							document.getElementById("etransport").value = response[0].transport;
-							document.getElementById("ephenol").value = response[0].phenol;
-							document.getElementById("enitro").value = response[0].nitro;
-							document.getElementById("emoisturecontent").value = response[0].moisturecontent;
-							document.getElementById("efreephosphates").value = response[0].freephosphates;
-							document.getElementById("emolar").value = response[0].molar;
-							document.getElementById("eothers").value = response[0].others;
+							document.getElementById("eassay").value = $(response).find('assay').text();
+							document.getElementById("emp").value = $(response).find('mp').text();
+							document.getElementById("eph").value = $(response).find('ph').text();
+							document.getElementById("eboiling").value = $(response).find('boiling').text();
+							document.getElementById("edioxane").value = $(response).find('dioxane').text();
+							document.getElementById("eresearch").value = $(response).find('research').text();
+							document.getElementById("edescription").value = $(response).find('description').text();
+							document.getElementById("eusage").value = $(response).find('usage').text();
+							document.getElementById("eapplication").value = $(response).find('application').text();
+							document.getElementById("eidentityir").value = $(response).find('identityir').text();
+							document.getElementById("eidentityftir").value = $(response).find('identityftir').text();
+							document.getElementById("etransport").value = $(response).find('transport').text();
+							document.getElementById("ephenol").value = $(response).find('phenol').text();
+							document.getElementById("enitro").value = $(response).find('nitro').text();
+							document.getElementById("emoisturecontent").value = $(response).find('moisturecontent').text();
+							document.getElementById("efreephosphates").value = $(response).find('freephosphates').text();
+							document.getElementById("emolar").value = $(response).find('molar').text();
+							document.getElementById("eothers").value = $(response).find('others').text();
 							
 							document.getElementById("editStatus").innerHTML='';
 							

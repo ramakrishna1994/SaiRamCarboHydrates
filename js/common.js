@@ -25,32 +25,33 @@ function getSearchResults(){
 						url: "php/getAllProductsDetails.php",// give your url
 						type: "POST",
 						data: formData,
-						dataType: 'json',
+						dataType: 'xml',
 						processData: false,
 						contentType: false,
 						success: function (response) 
 						{
-							if(response[response.length-1].error == 1)
+							
+							if($(response).find('error').text() == 1)
 							{
-									document.getElementById("searchResultstable").innerHTML = '<tr><td colspan="5"><center><font size="2px" color="red">No Results Found !!</font></center></td></tr>';
+									document.getElementById("productstable").innerHTML = '<tr><td colspan="7"><center><font size="2px" color="red">No Results Found !!</font></center></td></tr>';
 									return;
 							}
-							for(var i=0;i<response.length-1;i++)
-							{
-								innerhtml += '	<tr class="'+colors[i%6]+'">'
-											+'	<td>'+(i+1)+'</td>'
-											+'<td><a href="showproduct.php?id='+response[i].id+'" 		target="_blank">'+response[i].name+'</a></td>'
-											+'	<td>'+response[i].casno+'</td>';
-														
-								
-											
+							$(response).find('product').each(function(index){
+							 
+								innerhtml += '	<tr class="'+colors[index%6]+'">'
+											+'	<td>'+(index+1)+'</td>'
+											+'	<td><a href="showproduct.php?id='+$(this).find('id').text()+'" target="_blank">'+$(this).find('name').text()+'</a></td>'
+											+'	<td>'+$(this).find('casno').text()+'</td>';
 											
 								
-							}
+											
 							
-							innerhtml+='</tbody></table>';
-							document.getElementById("searchResultstable").innerHTML = innerhtml;
-						}
+								
+							});
+								
+								document.getElementById("searchResultstable").innerHTML = innerhtml;
+							
+						},error: function(){alert("Error: Something went wrong");}
 						});
 				});
 }
