@@ -1,3 +1,4 @@
+<!-- here Moisture Content (by KF) is replaced with Purity(By GC)-->
 <?php
 
 require_once 'constant/connection.php';
@@ -13,7 +14,7 @@ $result=mysqli_query($con,$selectquery) or die(mysqli_error($con));
 $details = array();
 $category;
 $others;
-$detailsheaders=array("Product Name","Synonyms","CAS Registry Number","Molecular Formula","Molecular Weight","Molecular Structure","Appearance","Purity (By HPLC)","Specific optical rotation","Solubility","Water content (BY KF)","storage","Assay(By HPLC)","Melting point","Boiling Point","pH(5% in water)","Dioxane free","For Research Use Only","Description","Usage","Application","Identity(IR)","Identity (FTIR)","Transport information","Free Phenol","P-Nitro phenol content","Moisture Content (by KF)","Free Inorganic Phosphates (as PO4)","Molar Absorbance ϵ312 max UV");
+$detailsheaders=array("Product Name","Synonyms","CAS Registry Number","Molecular Formula","Molecular Weight","Molecular Structure","Appearance","Purity (By HPLC)","Specific optical rotation","Solubility","Water content (BY KF)","storage","Assay(By HPLC)","Melting point","Boiling Point","pH(5% in water)","Dioxane free","For Research Use Only","Description","Usage","Application","Identity(IR)","Identity (FTIR)","Transport information","Free Phenol","P-Nitro phenol content","Purity(By GC)","Free Inorganic Phosphates (as PO4)","Molar Absorbance ϵ312 max UV");
 
 while($row = mysqli_fetch_array($result)){
 	$details[0]=$row['name'];
@@ -43,7 +44,7 @@ while($row = mysqli_fetch_array($result)){
 	$details[23]=$row['transport'];
 	$details[24]=$row['free_phenol'];
 	$details[25]=$row['p_nitro_phenol'];
-	$details[26]=$row['moisture_content'];
+	$details[26]=$row['moisture_content']; //Purity(By GC)
 	$details[27]=$row['free_inorganics'];
 	$details[28]=$row['molar_absence'];
 	$others=$row['others'];
