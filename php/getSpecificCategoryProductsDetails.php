@@ -12,25 +12,25 @@ $selectquery = "select * from products where (name like '%".$searchValue."%' or 
 $result=mysqli_query($con,$selectquery) or die(mysqli_error($con));
 
 $error = 1;
-$json = "[";
+$xml = new SimpleXMLElement("<products />");
 
 while($row = mysqli_fetch_array($result)){
-	$error = 0;
-	$json.='{';
-	$json.='"id":'.$row['id'].',';
-	$json.='"name":"'.$row['name'].'",';
-	$json.='"category":"'.$row['category'].'",';
-	$json.='"casno":"'.$row['casno'].'"';
-	$json.='},';
+	
+		$error = 0;
+		$product = $xml->addChild('product');
+		$product->addChild('id',htmlspecialchars($row['id']) );
+		$product->addChild('name',htmlspecialchars($row['name'] ));
+		$product->addChild('category', htmlspecialchars($row['category']));
+		$product->addChild('casno', htmlspecialchars($row['casno']));
 			
 }
 			
 
 
-$json.='{"error":'.$error.'}]';
+$error = $xml->addChild('error',$error);		
 
-
-echo $json;
+Header('Content-type: text/xml');
+print($xml->asXML());
 
 mysqli_close($con);
 ?>

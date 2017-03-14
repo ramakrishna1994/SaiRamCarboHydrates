@@ -13,32 +13,35 @@ function showSpecificProductsDetails(){
 						url: "php/getSpecificCategoryProductsDetails.php",// give your url
 						type: "POST",
 						data: formData,
-						dataType: 'json',
+						dataType: 'xml',
 						processData: false,
 						contentType: false,
 						success: function (response) 
 						{
-							if(response[response.length-1].error == 1)
+							if($(response).find('error').text() == 1)
 							{
-									document.getElementById("productstable").innerHTML = '<tr><td colspan="6"><center><font size="2px" color="red">No Results Found !!</font></center></td></tr>';
+									document.getElementById("productstable").innerHTML = '<tr><td colspan="7"><center><font size="2px" color="red">No Results Found !!</font></center></td></tr>';
 									return;
 							}
-							for(var i=0;i<response.length-1;i++)
-							{
+							
+							$(response).find('product').each(function(index){
+							 
 								innerhtml += '	<tr >'
-											+'	<td>'+(i+1)+'</td>';
+											+'	<td>'+(index+1)+'</td>';
 											
-								innerhtml+= '<td><a href="showproduct.php?id='+response[i].id+'" 		target="_blank">'+response[i].name+'</a></td>';
+								innerhtml+= '<td><a href="showproduct.php?id='+$(this).find('id').text()+'" 		target="_blank">'+$(this).find('name').text()+'</a></td>';
 											
-								innerhtml+='<td>'+response[i].casno+'</td>'
+								innerhtml+='<td>'+$(this).find('casno').text()+'</td>'
 											+'	</tr>';
 											
 								
-							}
+								
+							});
 							
-							innerhtml+='</tbody></table>';
+							
 							document.getElementById("productstable").innerHTML = innerhtml;
-						}
+							
+						},error: function(){alert("Error: Something went wrong");}
 						});
 				});
 }
