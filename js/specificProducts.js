@@ -29,7 +29,7 @@ function showSpecificProductsDetails(){
 								innerhtml += '	<tr >'
 											+'	<td>'+(index+1)+'</td>';
 											
-								innerhtml+= '<td><a href="showproduct.php?id='+$(this).find('id').text()+'" 		target="_blank">'+$(this).find('name').text()+'</a></td>';
+								innerhtml+= '<td><a href="showproduct.php?id='+$(this).find('id').text()+'&name='+$(this).find('name').text()+'&casno='+$(this).find('casno').text()+'&synonyms='+$(this).find('synonyms').text()+'" 		target="_blank">'+$(this).find('name').text()+'</a></td>';
 											
 								innerhtml+='<td>'+$(this).find('casno').text()+'</td>'
 											+'	</tr>';

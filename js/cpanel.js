@@ -28,7 +28,7 @@ function showProductsDetails(){
 							 
 								innerhtml += '	<tr class="'+colors[index%6]+'">'
 											+'	<td>'+(index+1)+'</td>'
-											+'	<td><a href="showproduct.php?id='+$(this).find('id').text()+'" target="_blank">'+$(this).find('name').text()+'</a></td>'
+											+'	<td><a href="showproduct.php?id='+$(this).find('id').text()+'&name='+$(this).find('name').text()+'&casno='+$(this).find('casno').text()+'&synonyms='+$(this).find('synonyms').text()+'" target="_blank">'+$(this).find('name').text()+'</a></td>'
 											+'	<td>'+$(this).find('casno').text()+'</td>';
 											
 								innerhtml+= '<td>'+$(this).find('category').text()+'</td>'

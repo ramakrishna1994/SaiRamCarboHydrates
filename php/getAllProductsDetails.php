@@ -20,12 +20,13 @@ while($row = mysqli_fetch_array($result)){
 		$product->addChild('id',htmlspecialchars($row['id']) );
 		$product->addChild('name',htmlspecialchars($row['name'] ));
 		$product->addChild('synonyms', htmlspecialchars($row['synonyms']));
+		$product->addChild('casno',htmlspecialchars($row['casno'] ));
+		/*
 		$product->addChild('mf',htmlspecialchars($row['mf'] ));
 		$product->addChild('mw',htmlspecialchars($row['mw'] ));
 		$product->addChild('appearance',htmlspecialchars($row['appearance']) );
 		$product->addChild('purity', htmlspecialchars($row['purity']));
 		$product->addChild('sor', htmlspecialchars($row['sor']));
-		$product->addChild('casno',htmlspecialchars($row['casno'] ));
 		$product->addChild('solubility',htmlspecialchars($row['solubility'] ));
 		$product->addChild('watercontent', htmlspecialchars($row['watercontent']));
 		$product->addChild('storage', htmlspecialchars($row['storage']));
@@ -49,6 +50,7 @@ while($row = mysqli_fetch_array($result)){
 		$product->addChild('freephosphates',htmlspecialchars($row['free_inorganics']) );
 		$product->addChild('molar',htmlspecialchars($row['molar_absence'] ));
 		$product->addChild('others',htmlspecialchars($row['others'] ));
+		*/
 		
 			
 }

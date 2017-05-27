@@ -22,6 +22,7 @@ while($row = mysqli_fetch_array($result)){
 		$product->addChild('name',htmlspecialchars($row['name'] ));
 		$product->addChild('category', htmlspecialchars($row['category']));
 		$product->addChild('casno', htmlspecialchars($row['casno']));
+		$product->addChild('synonyms', htmlspecialchars($row['synonyms']));
 			
 }
 			
